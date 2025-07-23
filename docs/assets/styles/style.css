@@ -13,16 +13,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
-    background-color: rgba(26, 26, 26, 0.8); /* Make header slightly transparent */
+    padding: 15px 5%; /* Use percentage for responsive padding */
+    background-color: rgba(26, 26, 26, 0.8); /* Slightly transparent header */
     position: relative;
     z-index: 10;
+    flex-wrap: wrap; /* Allow header items to wrap on smaller screens */
 }
 
 /* Home button */
 .logo a {
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 4vw, 1.5rem); /* Responsive font size */
     text-decoration: none;
     font-weight: bold;
     display: block;
@@ -31,14 +32,15 @@ header {
 /* Navigation */
 nav {
     display: flex;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px); /* Responsive gap */
+    flex-wrap: wrap; /* Allow nav items to wrap */
 }
 
 /* Navigation Links */
 nav a {
-    color: #ffffff; /* White color */
-    text-decoration: none; /* No underline */
-    font-size: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
     padding: 0;
     display: inline-block;
 }
@@ -53,8 +55,8 @@ nav a:hover {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     z-index: -1;
 }
@@ -62,39 +64,22 @@ nav a:hover {
 /* Hero Section */
 .hero {
     margin-top: 50px;
-    padding: 20px;
+    padding: 20px 5%; /* Responsive padding */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center; /* Centered text */
+    align-items: center; /* Center content by default */
+    text-align: center;
     position: relative;
     z-index: 10;
 }
 
-/* Ensure content remains readable */
-.hero, header {
-    position: relative;
-    z-index: 10; /* Make sure they appear above the video */
-}
-
-
-
-/* Hero Section */
-.hero {
-    margin-top: 50px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Aligns content to the right */
-    text-align: right; /* Aligns text to the right */
-}
-
+/* Hero Section Content */
 .hero h1 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2rem); /* Responsive font size */
 }
 
 .hero p {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 3vw, 1.1rem); /* Responsive font size */
     margin-bottom: 20px;
 }
 
@@ -104,11 +89,11 @@ nav a:hover {
     color: white;
     padding: 12px 20px;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
     border-radius: 5px;
     transition: 0.3s;
-    display: inline-block; /* Ensures the button doesn't stretch full width */
-    margin: 0 auto; /* Centers the button horizontally */
+    display: inline-block;
+    margin: 0 auto;
 }
 
 .resume-btn:hover {
@@ -119,54 +104,53 @@ nav a:hover {
 .profile-pic {
     margin-top: 20px;
     display: flex;
-    justify-content: flex-end; /* Aligns the image to the right */
+    justify-content: center; /* Center image by default */
 }
 
 .profile-pic img {
-    width: 230px;
-    height: 230px;
+    width: clamp(150px, 40vw, 230px); /* Responsive image size */
+    height: clamp(150px, 40vw, 230px);
     border-radius: 50%;
     border: 3px solid #ffffff;
-    object-fit: cover; /* Ensures the image fits well */
+    object-fit: cover;
 }
 
-/* Introduction Section with Unique Background */
+/* Introduction Section */
 .intro-section {
-    padding: 20px;
+    padding: 20px 5%; /* Responsive padding */
     text-align: left;
     margin: 0 auto;
-    
-    color: #ffffff; /* White text for contrast */
+    max-width: 1200px; /* Limit max width for large screens */
+    color: #ffffff;
 }
 
 .intro-section h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive font size */
     margin-bottom: 20px;
-    color: #ffffff; /* White text for heading */
+    color: #ffffff;
 }
 
 .intro-section p {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 3vw, 1.1rem); /* Responsive font size */
     line-height: 1.6;
     margin-bottom: 20px;
-    color: #e0e0e0; /* Light gray text for paragraphs */
+    color: #e0e0e0;
 }
 
 /* Skills Section */
 #skills {
-    padding: 50px 20px;
+    padding: 50px 5%; /* Responsive padding */
     text-align: center;
-    
     color: #ffffff;
 }
 
 #skills h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive font size */
     margin-bottom: 10px;
 }
 
 #skills p {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 3vw, 1.1rem); /* Responsive font size */
     margin-bottom: 30px;
     color: #e0e0e0;
 }
@@ -175,7 +159,9 @@ nav a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    padding: 0 20px;
+    padding: 0 5%; /* Responsive padding */
+    max-width: 1200px; /* Limit max width */
+    margin: 0 auto;
 }
 
 .skill-card {
@@ -192,14 +178,14 @@ nav a:hover {
 }
 
 .skill-icon {
-    width: 50px;
-    height: 50px;
+    width: clamp(40px, 10vw, 50px); /* Responsive icon size */
+    height: clamp(40px, 10vw, 50px);
     margin-bottom: 15px;
     align-items: center;
 }
 
 .skill-card h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 4vw, 1.5rem); /* Responsive font size */
     margin-bottom: 10px;
     color: #00aaff;
 }
@@ -210,7 +196,98 @@ nav a:hover {
 }
 
 .skill-card ul li {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
     margin-bottom: 8px;
     color: #e0e0e0;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablets and smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 3%;
+    }
+
+    nav {
+        margin-top: 10px;
+        gap: 15px;
+    }
+
+    .hero {
+        align-items: center; /* Center content on smaller screens */
+        text-align: center;
+    }
+
+    .profile-pic {
+        justify-content: center; /* Center image on smaller screens */
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller cards */
+    }
+}
+
+/* Mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .logo a {
+        font-size: clamp(1rem, 5vw, 1.2rem);
+    }
+
+    nav a {
+        font-size: clamp(0.8rem, 4vw, 0.9rem);
+    }
+
+    .hero h1 {
+        font-size: clamp(1.2rem, 6vw, 1.5rem);
+    }
+
+    .hero p {
+        font-size: clamp(0.8rem, 4vw, 0.9rem);
+    }
+
+    .resume-btn {
+        padding: 10px 15px;
+        font-size: clamp(0.8rem, 4vw, 0.9rem);
+    }
+
+    .profile-pic img {
+        width: clamp(120px, 35vw, 150px);
+        height: clamp(120px, 35vw, 150px);
+    }
+
+    .intro-section h1 {
+        font-size: clamp(1.5rem, 6vw, 1.8rem);
+    }
+
+    .intro-section p {
+        font-size: clamp(0.8rem, 4vw, 0.9rem);
+    }
+
+    #skills h2 {
+        font-size: clamp(1.5rem, 6vw, 1.8rem);
+    }
+
+    #skills p {
+        font-size: clamp(0.8rem, 4vw, 0.9rem);
+    }
+
+    .skill-card {
+        padding: 15px;
+    }
+
+    .skill-icon {
+        width: clamp(30px, 8vw, 40px);
+        height: clamp(30px, 8vw, 40px);
+    }
+
+    .skill-card h3 {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+    }
+
+    .skill-card ul li {
+        font-size: clamp(0.8rem, 4vw, 0.9rem);
+    }
 }
