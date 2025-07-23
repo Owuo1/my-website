@@ -5,108 +5,185 @@ body {
     font-family: Arial, sans-serif;
     background-color: #14213d;
     color: #ffffff;
-    text-align: left; /* Changed from "right" to "left" for better alignment */
-  }
-  
-  /* Header */
-  header {
+    text-align: left;
+}
+
+/* Header */
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
+    padding: 15px 5%; /* Use percentage for responsive padding */
     background-color: #1a1a1a;
-  }
-  
-  .logo {
+    flex-wrap: wrap; /* Allow header items to wrap on smaller screens */
+}
+
+/* Logo */
+.logo {
     color: #ffffff;
-    font-size: 1.5rem;
-  }
-  
-  nav ul {
+    font-size: clamp(1.2rem, 4vw, 1.5rem); /* Responsive font size */
+}
+
+/* Navigation Menu */
+nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px); /* Responsive gap */
     margin: 0;
     padding: 0;
-  }
-  
-  nav ul li {
+    flex-wrap: wrap; /* Allow nav items to wrap */
+}
+
+nav ul li {
     display: inline;
-  }
-  
-  nav ul li a {
+}
+
+nav ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
     transition: 0.3s;
-  }
-  
-  nav ul li a:hover {
+}
+
+nav ul li a:hover {
     color: #00aaff;
-  }
-  
-  /* Main Content */
-  main {
-    padding: 20px;
+}
+
+/* Main Content */
+main {
+    padding: 20px 5%; /* Responsive padding */
     background-color: #fff;
-    margin: 20px;
+    margin: 20px 5%; /* Responsive margin */
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: #333; /* Added for better contrast */
-  }
-  
-  h1 {
-    font-size: 2rem;
+    color: #333;
+    max-width: 1200px; /* Limit max width for large screens */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Title */
+h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem); /* Responsive font size */
     margin-bottom: 20px;
-    color: #14213d; /* Added for better contrast */
-  }
-  
-  form {
+    color: #14213d;
+}
+
+/* Form */
+form {
     display: flex;
     flex-direction: column;
-  }
-  
-  .form-group {
+    width: 100%; /* Ensure form takes full width */
+    max-width: 700px; /* Limit form width for readability */
+    margin: 0 auto; /* Center form */
+}
+
+/* Form Group */
+.form-group {
     margin-bottom: 15px;
-  }
-  
-  .form-group label {
+}
+
+.form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #14213d; /* Added for better contrast */
-  }
-  
-  .form-group input,
-  .form-group textarea {
+    color: #14213d;
+    font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
+}
+
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1rem;
-    color: #333; /* Added for better contrast */
-  }
-  
-  button {
+    font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
+    color: #333;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Button */
+button {
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
     cursor: pointer;
     transition: 0.3s;
-  }
-  
-  button:hover {
+    width: fit-content; /* Prevent button from stretching */
+    margin: 0 auto; /* Center button */
+}
+
+button:hover {
     background-color: #555;
-  }
-  
-  /* Footer */
-  footer {
-    padding: 10px;
+}
+
+/* Footer */
+footer {
+    padding: 10px 5%; /* Responsive padding */
     margin-top: 30px;
-    background-color: #BDC3C7; /* Changed to match header */
+    background-color: #BDC3C7;
     text-align: center;
-    color: #ffffff; /* Added for better contrast */
-  }
+    color: #ffffff;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablets and smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 3%;
+    }
+
+    nav ul {
+        margin-top: 10px;
+        justify-content: center; /* Center nav items */
+    }
+
+    main {
+        margin: 15px 3%; /* Reduce margin */
+        padding: 15px 3%; /* Reduce padding */
+    }
+
+    form {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+}
+
+/* Mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: clamp(1rem, 5vw, 1.2rem);
+    }
+
+    nav ul li a {
+        font-size: clamp(0.8rem, 4vw, 0.9rem);
+    }
+
+    h1 {
+        font-size: clamp(1.2rem, 6vw, 1.5rem);
+    }
+
+    .form-group label {
+        font-size: clamp(0.8rem, 4vw, 0.9rem);
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: clamp(0.8rem, 4vw, 0.9rem);
+        padding: 8px; /* Reduce padding for smaller screens */
+    }
+
+    button {
+        font-size: clamp(0.8rem, 4vw, 0.9rem);
+        padding: 8px 15px; /* Reduce padding */
+    }
+
+    footer {
+        padding: 8px 3%; /* Reduce padding */
+    }
+}
