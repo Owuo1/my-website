@@ -13,21 +13,25 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
+  padding: 15px 5%; /* Use percentage for responsive padding */
   background-color: #1a1a1a;
+  flex-wrap: wrap; /* Allow header items to wrap on smaller screens */
 }
 
+/* Logo */
 .logo {
   color: #ffffff;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem); /* Responsive font size */
 }
 
+/* Navigation Menu */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: clamp(10px, 2vw, 20px); /* Responsive gap */
   margin: 0;
   padding: 0;
+  flex-wrap: wrap; /* Allow nav items to wrap */
 }
 
 nav ul li {
@@ -37,7 +41,7 @@ nav ul li {
 nav ul li a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
   transition: 0.3s;
 }
 
@@ -47,43 +51,41 @@ nav ul li a:hover {
 
 /* Main Content */
 main {
-  padding: 30px;
+  padding: 30px 5%; /* Responsive padding */
   text-align: left; /* Ensures proper readability */
 }
 
+/* Education Section */
 #education {
   max-width: 900px;
   margin: 0 auto;
   background-color: #fff;
   color: #333;
-  padding: 20px;
+  padding: 20px 5%; /* Responsive padding */
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
- 
 }
-
 
 #education p {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
   color: #555;
 }
 
+/* Experience Block */
 .experience-block {
   margin-top: 30px;
-  padding: 20px;
+  padding: 20px 5%; /* Responsive padding */
   border-left: 5px solid #00aaff;
   background-color: #f9f9f9;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
- 
 /* Headings */
-
 main h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 5vw, 2rem); /* Responsive font size */
   color: #14213d;
   border-bottom: 2px solid #14213d;
   padding-bottom: 10px;
@@ -91,16 +93,15 @@ main h2 {
 
 main h3 {
   color: #14213d;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem); /* Responsive font size */
   margin-bottom: 10px;
 }
 
 main h4 {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3.5vw, 1.2rem); /* Responsive font size */
   color: #555;
   margin: 10px 0;
   text-align: left;
-  
 }
 
 /* Content Lists */
@@ -112,19 +113,97 @@ main ul {
 
 main ul li {
   margin-bottom: 10px;
+  font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
 }
 
 .experience-block p {
   text-align: left;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
   color: #555;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 10px;
+  padding: 10px 5%; /* Responsive padding */
   background-color: #BDC3C7;
   color: #fff;
   margin-top: 30px;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablets and smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 3%;
+  }
+
+  nav ul {
+    margin-top: 10px;
+    justify-content: center; /* Center nav items */
+  }
+
+  main {
+    padding: 20px 3%; /* Reduce padding */
+  }
+
+  #education {
+    padding: 15px 3%; /* Reduce padding */
+  }
+
+  .experience-block {
+    padding: 15px 3%; /* Reduce padding */
+    border-left: none; /* Remove left border for better mobile appearance */
+    border-top: 5px solid #00aaff; /* Replace with top border */
+  }
+}
+
+/* Mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .logo {
+    font-size: clamp(1rem, 5vw, 1.2rem);
+  }
+
+  nav ul li a {
+    font-size: clamp(0.8rem, 4vw, 0.9rem);
+  }
+
+  main {
+    padding: 15px 3%;
+  }
+
+  #education {
+    padding: 10px 3%;
+  }
+
+  main h2 {
+    font-size: clamp(1.2rem, 6vw, 1.5rem);
+  }
+
+  main h3 {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
+
+  main h4 {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+  }
+
+  .experience-block p {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+  }
+
+  main ul li {
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+  }
+
+  .experience-block {
+    padding: 10px 3%;
+  }
+
+  footer {
+    padding: 8px 3%; /* Reduce padding */
+  }
 }
