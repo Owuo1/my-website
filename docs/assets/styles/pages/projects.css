@@ -171,7 +171,7 @@ ul li {
 
 .testimonial {
   font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
-  color: #666;
+  color: #888;
   opacity: 0;
   position: absolute;
   top: 0;
